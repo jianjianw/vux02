@@ -12,7 +12,7 @@ import echarts from 'echarts'
 
 Vue.use(iView);
 Vue.use(VueAxios, axios);
-Vue.use(echarts);
+Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 
 new Vue({

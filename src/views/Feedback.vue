@@ -2,39 +2,39 @@
   .left-demo {
     text-align: left;
     color: #000;
-    padding: 0px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
   }
   .right-demo {
     text-align: right;
     color: #000;
-    padding: 0px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
   }
 
   .sub-title-demo{
     text-align: left;
-    padding: 0px 0px 20px 5px;
+    margin: 0px 0px 20px 5px;
     font-size: 13px;
   }
   .title-font{
     text-align: left;
-    padding: 0px 0px 10px 5px;
+    margin: 0px 0px 10px 5px;
     font-weight:bold;
   }
 
 
   .left-title-font{
     text-align: left;
-    padding: 0px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
     font-size: 13px;
   }
   .center-title-font {
     text-align: center;
     color: #000;
-    padding: 0px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
   }
   .right-title-font{
     text-align: right;
-    padding: 0px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
     font-size: 13px;
   }
 
