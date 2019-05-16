@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import HelloVux from '@/views/HelloVux'
 import Feedback from '@/views/Feedback'
+import ParentFeedback from '@/views/ParentFeedback'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/feedback',
       name: 'Feedback',
       component: Feedback
+    },
+    {
+      path: '/parentFeedback',
+      name: 'ParentFeedback',
+      component: ParentFeedback
     },
   ]
 })

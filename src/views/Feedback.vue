@@ -106,7 +106,7 @@
     </div>
 
     <!--课堂表现-->
-    <flexbox>
+    <flexbox justify="">
       <flexbox-item>
         <div class="left-title-font">课堂表现</div>
       </flexbox-item>
