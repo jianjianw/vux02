@@ -73,7 +73,8 @@
   .music-img {
     width: 80px;
     height: 80px;
-    margin-left: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     overflow: hidden;
   }
 
@@ -188,24 +189,9 @@
         <span>这是本节课曲谱的演奏情况</span>
       </div>
       <flexbox justify="center">
-        <!--<div v-for="(item,index) in photoList" :value="item.value" :key="item.index">
+        <div class="music-img" v-for="(item,index) in photoList" :value="item.value" :key="item.index">
           <x-img :src="item"></x-img>
-        </div>-->
-        <flexbox-item>
-          <div class="music-img">
-            <img src="../photo/weixin00.jpg"></img>
-          </div>
-        </flexbox-item>
-        <flexbox-item>
-          <div class="music-img">
-            <img src="../photo/weixin00.jpg"></img>
-          </div>
-        </flexbox-item>
-        <flexbox-item>
-          <div class="music-img">
-            <img src="../photo/weixin00.jpg"></img>
-          </div>
-        </flexbox-item>
+        </div>
       </flexbox>
 
       <!-- 音符准确性-->
@@ -445,9 +431,9 @@
     data() {
       return {
         photoList: [
-          '../photo/weixin00.jpg',
-          '../photo/weixin01.jpg',
-          '../photo/weixin02.jpg',
+          'https://img.alicdn.com/imgextra/i1/485889752/TB2pz2Mq3xlpuFjy0FoXXa.lXXa_!!485889752.jpg_430x430q90.jpg',
+          'https://img.alicdn.com/imgextra/i1/485889752/TB2pz2Mq3xlpuFjy0FoXXa.lXXa_!!485889752.jpg_430x430q90.jpg',
+          'https://img.alicdn.com/imgextra/i1/485889752/TB2pz2Mq3xlpuFjy0FoXXa.lXXa_!!485889752.jpg_430x430q90.jpg',
         ],
 
         value06: 0,
