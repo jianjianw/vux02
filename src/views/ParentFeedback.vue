@@ -102,7 +102,7 @@
 </style>
 <template>
   <div>
-    <div>
+    <div id="addImage">
       <flexbox justify="center">
         <span class="center-title-font">获得称号</span>
       </flexbox>
@@ -301,17 +301,9 @@
     <spinner v-if="show === true" type="lines" size="100px"></spinner>
 
     <x-button type="primary" @click.native="submit">提交</x-button>
-    <div>
-      <confirm v-model="show"
-               title="晒一晒"
-               @on-cancel="onCancel"
-               @on-confirm="onConfirm">
-      </confirm>
-    </div>
 
     <div>
       <x-dialog v-model="showToast">
-
         <flexbox orient="vertical">
 
           <flexbox justify="center">
@@ -332,15 +324,17 @@
           </flexbox>
 
         </flexbox>
-
       </x-dialog>
     </div>
+
+   <img :src="dataURL" />
 
   </div>
 </template>
 
 <script>
-  import {Flexbox, FlexboxItem, XImg, XButton, Confirm, Spinner, XDialog} from 'vux'
+  import {Flexbox, FlexboxItem, XImg, XButton, Confirm, Spinner, XDialog} from 'vux';
+  import html2canvas from 'html2canvas'
 
   export default {
     name: "ParentFeedback",
@@ -357,11 +351,20 @@
       submit() {
         //1.条数据发送ajax;
 
-        //2.显示弹窗
-        //this.show = true;
 
-        this.showToast = true;
-        console.log("提交了");
+        //2.截取图片
+        let el = document.getElementById("addImage");
+        html2canvas(el,{
+          backgroundColor: null
+        }).then((canvas) => {
+          let dataURL = canvas.toDataURL("image/png");
+          this.dataURL = dataURL;
+        });
+        console.log("提交了",this.dataURL);
+
+        //3.打开页面跳转提示框
+        // this.showToast = true;
+
       },
       onCancel() {
         console.log('on cancel')
@@ -447,7 +450,8 @@
         selectText09: '集中',
         selectText10: '一般',
         show: false,
-        showToast: false
+        showToast: false,
+        dataURL:''
       }
     }
   }

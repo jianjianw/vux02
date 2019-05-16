@@ -8,10 +8,12 @@ import VueAxios from 'vue-axios'
 import iView from 'iview'  //引入ivew库
 import 'iview/dist/styles/iview.css'  // 使用 CSS
 import echarts from 'echarts'
+import html2canvas from 'html2canvas'
 
 
 Vue.use(iView);
 Vue.use(VueAxios, axios);
+Vue.use(html2canvas);
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 
