@@ -12,6 +12,15 @@
     margin: 20px 0px 5px 5px
   }
 
+  .padding-top-s {
+    padding-top: 10px;
+  }
+
+  .padding-top-botton-s {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
   .sub-title-font {
     text-align: left;
     font-size: 10px;
@@ -302,15 +311,50 @@
       <span>{{selectText10}}</span>
     </flexbox>
     <br>
+    <!--录音的效果-->
+    <spinner v-if="show === true" type="lines" size="100px"></spinner>
 
     <x-button type="primary" @click.native="submit">提交</x-button>
+    <div>
+      <confirm v-model="show"
+               title="晒一晒"
+               @on-cancel="onCancel"
+               @on-confirm="onConfirm">
+      </confirm>
+    </div>
 
+    <div>
+      <x-dialog v-model="showToast">
+
+        <flexbox orient="vertical">
+
+          <flexbox justify="center">
+            <span class="center-title-font padding-top-s">晒一晒</span>
+          </flexbox>
+          <flexbox justify="center">
+            <span class="center-title-font padding-top-s">
+              快在你的盆友圈晒一晒最新的陪练成果吧
+            </span>
+          </flexbox>
+          <flexbox justify="space-around">
+            <div class="padding-top-botton-s">
+              <x-button mini>一会再说</x-button>
+            </div>
+            <div class="padding-top-botton-s">
+              <x-button mini>现在就晒</x-button>
+            </div>
+          </flexbox>
+
+        </flexbox>
+
+      </x-dialog>
+    </div>
 
   </div>
 </template>
 
 <script>
-  import {Flexbox, FlexboxItem, XImg, XButton} from 'vux'
+  import {Flexbox, FlexboxItem, XImg, XButton, Confirm, Spinner, XDialog} from 'vux'
 
   export default {
     name: "ParentFeedback",
@@ -318,18 +362,36 @@
       Flexbox,
       FlexboxItem,
       XImg,
-      XButton
+      XButton,
+      Confirm,
+      Spinner,
+      XDialog
     },
     methods: {
-      submit(){
+      submit() {
+        //1.条数据发送ajax;
+
+        //2.显示弹窗
+        //this.show = true;
+
+        this.showToast = true;
         console.log("提交了");
+      },
+      onCancel() {
+        console.log('on cancel')
+      },
+      onConfirm(msg) {
+        console.log('on confirm')
+        if (msg) {
+          alert(msg)
+        }
       },
       //家长点评
       selectItem() {
         let i = this.value10;
         switch (i) {
           case 1:
-            this.selectText10 = "一般";
+            this.selectText10 = "不满意";
             return;
           case 2:
             this.selectText10 = "满意";
@@ -398,6 +460,8 @@
         selectText08: '连贯',
         selectText09: '集中',
         selectText10: '一般',
+        show: false,
+        showToast: false
       }
     }
   }
