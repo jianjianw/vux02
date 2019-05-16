@@ -327,14 +327,15 @@
       </x-dialog>
     </div>
 
-   <img :src="dataURL" />
-
+   <img style="width: 100%; height: 100%" :src="dataURL" />
+    <div id="qrcode">二维码位置</div>
   </div>
 </template>
 
 <script>
   import {Flexbox, FlexboxItem, XImg, XButton, Confirm, Spinner, XDialog} from 'vux';
-  import html2canvas from 'html2canvas'
+  import html2canvas from 'html2canvas';
+  import QRCode from 'qrcode2';
 
   export default {
     name: "ParentFeedback",
@@ -351,9 +352,15 @@
       submit() {
         //1.条数据发送ajax;
 
+        let qrcode = new QRCode('qrcode', { // qrcode  html为标签id
+          width: 100, // 长度
+          height: 100, // 宽度
+          text: "https://www.baidu.com" // 内容
+        });
+        console.log(qrcode);
 
         //2.截取图片
-        let el = document.getElementById("addImage");
+       /* let el = document.getElementById("addImage");
         var opts = {
           //解决跨域图片问题
           useCORS: true,
@@ -363,8 +370,8 @@
           let dataURL = canvas.toDataURL("image/png");
           console.log("输出一下",dataURL);
           this.dataURL = dataURL;
-        });
-        console.log("提交了",this.dataURL);
+        });*/
+        console.log("提交了");
 
         //3.打开页面跳转提示框
         // this.showToast = true;
