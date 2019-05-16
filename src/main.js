@@ -7,12 +7,14 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import iView from 'iview'  //引入ivew库
 import 'iview/dist/styles/iview.css'  // 使用 CSS
+import echarts from 'echarts'
 
-Vue.use(iView)
-Vue.use(VueAxios, axios)
-Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+Vue.use(iView);
+Vue.use(VueAxios, axios);
+Vue.use(echarts);
+Vue.config.productionTip = false;
+
 new Vue({
   el: '#app',
   router,
