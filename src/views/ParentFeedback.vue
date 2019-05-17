@@ -420,8 +420,6 @@
           //4.图片生成完毕，打开提示框
           this.showToast = true;
         });
-
-
         console.log("提交了");
 
       },
