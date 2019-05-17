@@ -99,10 +99,14 @@
     overflow: hidden;
     margin-bottom: 10px;
   }
+
+  .code{
+    margin-left: 5px;
+  }
 </style>
 <template>
   <div>
-    <div id="addImage">
+    <div v-if="show === true" id="addImage">
       <flexbox justify="center">
         <span class="center-title-font">获得称号</span>
       </flexbox>
@@ -283,52 +287,92 @@
           </div>
         </flexbox-item>
       </flexbox>
+
+      <flexbox >
+        <!-- 二维码位置-->
+        <div class="code" id="qrcode"></div>
+
+        <flexbox-item v-if="showCode === true">
+          <flexbox orient="vertical">
+            <flexbox-item>
+              <span>
+                 童童小朋友邀请您加入MusicKid钢琴陪练服务
+              </span>
+            </flexbox-item>
+
+            <flexbox-item>
+              <span>
+                 让您的孩子开心练琴，享受练琴快乐。
+               </span>
+            </flexbox-item>
+
+            <flexbox-item>
+               <span>
+                扫描二维码立即开始体验课
+               </span>
+            </flexbox-item>
+          </flexbox>
+        </flexbox-item>
+      </flexbox>
     </div>
 
     <!--家长评价-->
-    <div class="left-title-font">
-      <span>家长点评</span>
-    </div>
-    <div class="sub-title-font">
-      <span>您对老师的评价对我们来说非常重要</span>
-    </div>
-    <flexbox orient="vertical">
-      <Rate v-model="value10" @on-change="selectItem" :count=3 icon="ios-heart"/>
-      <span>{{selectText10}}</span>
-    </flexbox>
-    <br>
-    <!--录音的效果-->
-    <spinner v-if="show === true" type="lines" size="100px"></spinner>
+    <div v-if="show === true">
+      <div class="left-title-font">
+        <span>家长点评</span>
+      </div>
+      <div class="sub-title-font">
+        <span>您对老师的评价对我们来说非常重要</span>
+      </div>
+      <flexbox orient="vertical">
+        <Rate v-model="value10" @on-change="selectItem" :count=3 icon="ios-heart"/>
+        <span>{{selectText10}}</span>
+      </flexbox>
+      <br>
+      <!--录音的效果-->
+      <!--<spinner v-if="show === true" type="lines" size="100px"></spinner>-->
 
-    <x-button type="primary" @click.native="submit">提交</x-button>
+      <x-button type="primary" @click.native="submit">提交</x-button>
 
-    <div>
-      <x-dialog v-model="showToast">
-        <flexbox orient="vertical">
+      <div>
+        <x-dialog v-model="showToast">
+          <flexbox orient="vertical">
 
-          <flexbox justify="center">
-            <span class="center-title-font padding-top-s">晒一晒</span>
-          </flexbox>
-          <flexbox justify="center">
+            <flexbox justify="center">
+              <span class="center-title-font padding-top-s">晒一晒</span>
+            </flexbox>
+            <flexbox justify="center">
             <span class="center-title-font padding-top-s">
               快在你的盆友圈晒一晒最新的陪练成果吧
             </span>
-          </flexbox>
-          <flexbox justify="space-around">
-            <div class="padding-top-botton-s">
-              <x-button mini>一会再说</x-button>
-            </div>
-            <div class="padding-top-botton-s">
-              <x-button mini>现在就晒</x-button>
-            </div>
-          </flexbox>
+            </flexbox>
+            <flexbox justify="space-around">
+              <div class="padding-top-botton-s">
+                <x-button mini>一会再说</x-button>
+              </div>
+              <div class="padding-top-botton-s">
+                <x-button mini @click.native="showImg">现在就晒</x-button>
+              </div>
+            </flexbox>
 
-        </flexbox>
-      </x-dialog>
+          </flexbox>
+        </x-dialog>
+      </div>
     </div>
 
-   <img style="width: 100%; height: 100%" :src="dataURL" />
-    <div id="qrcode">二维码位置</div>
+    <div v-if="showImage === true">
+      <img style="width: 100%; height: 100%" :src="dataURL" />
+      <flexbox justify="space-around">
+        <div class="padding-top-botton-s">
+          <x-button mini @click.native="saveImg">保存相册</x-button>
+        </div>
+        <div class="padding-top-botton-s">
+          <x-button mini @click.native="shareTimeline" >分享</x-button>
+        </div>
+      </flexbox>
+    </div>
+
+
   </div>
 </template>
 
@@ -352,6 +396,10 @@
       submit() {
         //1.条数据发送ajax;
 
+
+        //显示二位码旁边的文字
+        this.showCode = true;
+        //2.生成二维码
         let qrcode = new QRCode('qrcode', { // qrcode  html为标签id
           width: 100, // 长度
           height: 100, // 宽度
@@ -359,8 +407,8 @@
         });
         console.log(qrcode);
 
-        //2.截取图片
-       /* let el = document.getElementById("addImage");
+        //3.截取图片
+        let el = document.getElementById("addImage");
         var opts = {
           //解决跨域图片问题
           useCORS: true,
@@ -370,22 +418,33 @@
           let dataURL = canvas.toDataURL("image/png");
           console.log("输出一下",dataURL);
           this.dataURL = dataURL;
-        });*/
+        });
         console.log("提交了");
+        //4.打开页面跳转提示框
+        this.showToast = true;
 
-        //3.打开页面跳转提示框
-        // this.showToast = true;
 
       },
-      onCancel() {
-        console.log('on cancel')
+
+      //显示截取的图片，隐藏原来的页面
+      showImg(){
+        //显示图片区域
+        this.showImage = true;
+        //隐藏原来的页面
+        this.show = false;
       },
-      onConfirm(msg) {
-        console.log('on confirm')
-        if (msg) {
-          alert(msg)
-        }
+
+      //保存图片到本地
+      saveImg(){
+        console.log("保存图片");
       },
+
+      //分享到盆友圈
+      shareTimeline(){
+        console.log("分享到盆友圈")
+      },
+
+
       //家长点评
       selectItem() {
         let i = this.value10;
@@ -461,8 +520,10 @@
         selectText08: '连贯',
         selectText09: '集中',
         selectText10: '一般',
-        show: false,
+        show: true,
         showToast: false,
+        showCode:false,
+        showImage:false,
         dataURL:''
       }
     }
