@@ -286,8 +286,10 @@
       <span>练琴的建议可以让宝贝更快的成长</span>
     </div>
     <!--<x-button id="target" type="primary" @click.native="startRecord">语音留言（按住说话）</x-button>-->
+    <!--已经添加事件-->
     <x-button id="target" type="primary">语音留言（按住说话）</x-button>
-    <!--<button id="target">这是一个但阿牛</button>-->
+    <!--录音的效果-->
+    <spinner v-if="show === true" type="lines" size="100px"></spinner>
 
     <group>
       <x-textarea :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
@@ -300,7 +302,7 @@
 
 <script>
   import {Group, Grid, GridItem, GroupTitle, Flexbox, FlexboxItem,Checker,CheckerItem,Icon,Checklist,XHeader,
-    XTextarea,XButton } from 'vux'
+    XTextarea,XButton,Spinner } from 'vux'
   import wx from 'weixin-js-sdk'
 
   export default {
@@ -318,7 +320,8 @@
       Checklist,
       XHeader,
       XTextarea,
-      XButton
+      XButton,
+      Spinner
     },
     methods:{
       //录音
@@ -637,7 +640,9 @@
         imgName: '',
         visible: false,
         uploadList: [],
-        uploadUrl:''
+        uploadUrl:'',
+        //录音效果显示
+        show:false,
       }
     },
 
@@ -651,6 +656,7 @@
         console.log("添加触摸事件");
         //判断当前环境
 
+        this.show = true;
         //录音
         this.startRecord();
 
@@ -659,7 +665,7 @@
       targetButton.addEventListener('touchend', e => {
         e.preventDefault();
         console.log("添加松手事件");
-
+        this.show = false;
         //结束录音
         this.stopRecord();
 

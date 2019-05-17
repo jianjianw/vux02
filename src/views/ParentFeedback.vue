@@ -329,8 +329,7 @@
         <span>{{selectText10}}</span>
       </flexbox>
       <br>
-      <!--录音的效果-->
-      <!--<spinner v-if="show === true" type="lines" size="100px"></spinner>-->
+
 
       <x-button type="primary" @click.native="submit">提交</x-button>
 
@@ -416,7 +415,6 @@
         };
         html2canvas(el,opts).then((canvas) => {
           let dataURL = canvas.toDataURL("image/png");
-          console.log("输出一下",dataURL);
           this.dataURL = dataURL;
         });
         console.log("提交了");
@@ -436,7 +434,13 @@
 
       //保存图片到本地
       saveImg(){
-        console.log("保存图片");
+        var url = this.dataURL;
+        var a = document.createElement('a')
+        var event = new MouseEvent('click')
+
+        a.download = name || '反馈单';
+        a.href = url
+        a.dispatchEvent(event)
       },
 
       //分享到盆友圈
