@@ -435,12 +435,11 @@
       //保存图片到本地
       saveImg(){
         var url = this.dataURL;
-        var a = document.createElement('a')
-        var event = new MouseEvent('click')
-
+        var a = document.createElement('a');
+        var event = new MouseEvent('click');
         a.download = name || '反馈单';
-        a.href = url
-        a.dispatchEvent(event)
+        a.href = url;
+        a.dispatchEvent(event);
       },
 
       //分享到盆友圈
