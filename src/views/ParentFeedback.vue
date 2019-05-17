@@ -441,7 +441,47 @@
         a.href = url;
         a.dispatchEvent(event);
         console.log("保存图片到本地");
+
+        //this.createIframe(this.dataURL);
+
       },
+
+      //创建iframe
+      createIframe(imgUrl){
+        var that = this;
+        //如果隐藏的iframe不存在则创建
+        if (!this.frame) {
+          var oBody = document.getElementsByTagName('body')[0],
+
+          frame = document.createElement('iframe');
+          frame.style.display = 'none';
+          frame.name = 'downloadIframe';
+          frame.id = 'downloadIframe';
+          frame.width = 0;
+          frame.height = 0;
+          this.frame = frame;
+
+          this.frame.onload = function () {
+            if (that.frame.src != '' && that.frame.src != 'about:blank') { //如果iframe的src路径存在那么调用下载浏览器的保存方法
+              window.frames["downloadIframe"].document.execCommand("SaveAs");
+            }
+          };
+          oBody.appendChild(this.frame); //将创建的iframe添加到body中
+        }
+        if (this.frame.src != imgUrl) { //如果本次要下载的图片路径不等于上一次下载的图片路径，那么对iframe进行重新赋值，那么又将会触发load事件，从而间接的触发下载事件
+          this.frame.src = imgUrl;
+        } else { //如果本次要下载的图片路径等于上一次下载的图片路径，直接调用下载图片方法
+          this.downloadImg();
+        }
+      },
+
+      //保存图片到本地
+      downloadImg(){
+        if (this.frame.src != '' && this.frame.src != 'about:blank') { //如果iframe的src路径存在那么调用下载浏览器的保存方法
+          window.frames["downloadIframe"].document.execCommand("SaveAs");
+        }
+      },
+
 
 
       //分享到盆友圈
