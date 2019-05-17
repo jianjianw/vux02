@@ -10,11 +10,7 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/dev',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
+
     {
       //path: '/vux/:id',
       path: '/vux',
@@ -26,8 +22,13 @@ export default new Router({
       name: 'Feedback',
       component: Feedback
     },
-    {
+    /*{
       path: '/parentFeedback',
+      name: 'ParentFeedback',
+      component: ParentFeedback
+    },*/
+    {
+      path: '/',
       name: 'ParentFeedback',
       component: ParentFeedback
     },
