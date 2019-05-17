@@ -100,7 +100,7 @@
     margin-bottom: 10px;
   }
 
-  .code{
+  .code {
     margin-left: 5px;
   }
 </style>
@@ -288,7 +288,7 @@
         </flexbox-item>
       </flexbox>
 
-      <flexbox >
+      <flexbox>
         <!-- 二维码位置-->
         <div class="code" id="qrcode"></div>
 
@@ -360,16 +360,17 @@
     </div>
 
     <div v-if="showImage === true">
-      <img style="width: 100%; height: 100%" :src="dataURL" />
+      <img style="width: 100%; height: 100%" :src="dataURL"/>
       <flexbox justify="space-around">
         <div class="padding-top-botton-s">
           <x-button mini @click.native="saveImg">保存相册</x-button>
         </div>
         <div class="padding-top-botton-s">
-          <x-button mini @click.native="shareTimeline" >分享</x-button>
+          <x-button mini @click.native="shareTimeline">分享</x-button>
         </div>
       </flexbox>
     </div>
+    <!--<iframe style="display:none;" id="IframeReportImg" name="IframeReportImg" width="0" height="0" src="about:blank"></iframe>-->
 
 
   </div>
@@ -411,21 +412,22 @@
         var opts = {
           //解决跨域图片问题
           useCORS: true,
-          backgroundColor: null
+          backgroundColor: '#FFFFFF'
         };
-        html2canvas(el,opts).then((canvas) => {
+        html2canvas(el, opts).then((canvas) => {
           let dataURL = canvas.toDataURL("image/png");
           this.dataURL = dataURL;
+          //4.图片生成完毕，打开提示框
+          this.showToast = true;
         });
-        console.log("提交了");
-        //4.打开页面跳转提示框
-        this.showToast = true;
 
+
+        console.log("提交了");
 
       },
 
       //显示截取的图片，隐藏原来的页面
-      showImg(){
+      showImg() {
         //显示图片区域
         this.showImage = true;
         //隐藏原来的页面
@@ -433,17 +435,19 @@
       },
 
       //保存图片到本地
-      saveImg(){
+      saveImg() {
         var url = this.dataURL;
         var a = document.createElement('a');
         var event = new MouseEvent('click');
-        a.download = name || '反馈单';
+        a.download = 'feedback.jpg';
         a.href = url;
         a.dispatchEvent(event);
+        console.log("保存图片到本地");
       },
 
+
       //分享到盆友圈
-      shareTimeline(){
+      shareTimeline() {
         console.log("分享到盆友圈")
       },
 
@@ -499,7 +503,7 @@
         };
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-      },
+      }
     },
     mounted() {
       this.drawChart();
@@ -525,9 +529,9 @@
         selectText10: '一般',
         show: true,
         showToast: false,
-        showCode:false,
-        showImage:false,
-        dataURL:''
+        showCode: false,
+        showImage: false,
+        dataURL: ''
       }
     }
   }
