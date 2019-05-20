@@ -38,7 +38,7 @@
       <!--<x-img src="http://www.nipic.com/show/4/141/9617157.html"></x-img>-->
 
       <x-button type="primary" mini @click.native="submit">提交</x-button>
-      <cell v-for="(item,index) in list" :title="item.title" :value="item.value"></cell>
+      <!--<cell v-for="(item,index) in list" :title="item.title" :value="item.value"></cell>-->
 
 
       <!-- <img class="previewer-demo-img" v-for="(item, index) in previewerList" :src="item.src" width="100" @click="show(index)">-->
@@ -75,7 +75,6 @@
 <script>
   import {Group, Cell, XInput, XSwitch, XTextarea, XButton, Checker, CheckerItem,
     Icon, XImg, Alert,AlertModule,Previewer, Flexbox, FlexboxItem} from 'vux'
-  //const wx = require('weixin-js-sdk');
   import wx from 'weixin-js-sdk'
   export default {
     title:"Feedback",

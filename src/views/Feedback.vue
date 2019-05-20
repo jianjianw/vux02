@@ -89,6 +89,18 @@
     cursor: pointer;
     margin: 0 2px;
   }
+  .record-line {
+    position: absolute;
+    opacity:0.5;
+    left: 100px;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    line-height: 200px;
+    background-color: #fff;
+    z-index: 100;
+  }
+
 
 </style>
 <template>
@@ -286,10 +298,14 @@
       <span>练琴的建议可以让宝贝更快的成长</span>
     </div>
     <!--<x-button id="target" type="primary" @click.native="startRecord">语音留言（按住说话）</x-button>-->
+    <!--录音的效果-->
+    <div class="record-line">
+      <spinner v-if="show === true" type="lines" size="100px"></spinner>
+    </div>
     <!--已经添加事件-->
     <x-button id="target" type="primary">语音留言（按住说话）</x-button>
-    <!--录音的效果-->
-    <spinner v-if="show === true" type="lines" size="100px"></spinner>
+
+
 
     <group>
       <x-textarea :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
