@@ -546,6 +546,12 @@
     mounted() {
       this.drawChart();
     },
+    created() {
+      var url = window.location.href.split("?")[1];
+      //获取传递过来的参数
+      console.log(url);
+      //this.uploadUrl = 'http://localhost:8888/dev/admin/nimei';
+    },
     data() {
       return {
         photoList: [
