@@ -136,7 +136,8 @@
   .btn:active{
     box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
     border-color: rgba(0,0,0,.3);
-    background: white;
+    background: #404040;
+    opacity: 0.5;
   }
 
   .record-voice{
@@ -149,6 +150,12 @@
     font-size: 18px;
     line-height: 39px;
     margin-bottom: 10px;
+  }
+  .record-voice:active{
+    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
+    border-color: rgba(0,0,0,.3);
+    background: #404040;
+    opacity: 0.5;
   }
 
   .record-text{
@@ -183,7 +190,8 @@
   .submit-btn:active{
     box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
     border-color: rgba(0,0,0,.3);
-    background: white;
+    background: #7A8AFE;
+    opacity: 0.5;
   }
   .demo-upload-list {
     display: inline-block;
@@ -283,7 +291,7 @@
               <flexbox-item :span=6>
                 <div class="center-title-font">
                   <!--<Rate v-model="value01" :count=5 @on-change="selectItem01" custom-icon="iconfont icon-shijian"/>-->
-                  <Rate v-model="value01" :count=5 @on-change="selectItem01" icon="ios-heart"/>
+                  <Rate v-model="value01" :count=5 @on-change="selectItem01(1)" icon="ios-heart"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -485,17 +493,23 @@
           <!--相册-->
           <div class="line"></div>
           <!--已经添加事件-->
-          <div v-if="recordFlag === false" id="target" class="btn">
+
+          <div v-if="!recordFlag"  @touchstart="submit01" @touchend="submit02" class="btn" >
             <i class="iconfont icon-shijian"></i> 语音留言（按住说话）
           </div>
-          <div v-else class="record-voice">
+          <!--录音成功开始显示-->
+          <div v-if="recordFlag"  class="record-voice" @click="submit">
+            <i class="iconfont icon-tongzhi"></i> 37
           </div>
+
+
+
           <!--<div class="record-text">
             <group>
               <x-textarea autosize=true :height=150 :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
             </group>
           </div>-->
-          <Input v-model="formItem"type="textarea" style="width: 325px" :maxlength="2000"  :autosize="{minRows: 5,maxRows: 10}" placeholder="语音留言会自动转化成汉字"></Input>
+          <Input type="textarea" style="width: 325px" :maxlength="2000"  :autosize="{minRows: 5,maxRows: 10}" placeholder="语音留言会自动转化成汉字"></Input>
 
 
           <div class="sub-title">
@@ -604,7 +618,21 @@
         return window.__wxjs_environment === 'miniprogram';
       },
 
+      //录音成功
+      submit01(){
+        console.log("01ok");
+        this.recordFlag = true;
+        alert("01ok");
+      },
+      submit02(){
+        console.log("02ok");
+        //this.recordFlag = true;
+        alert("02ok");
+      },
+
+
       submit() {
+        alert("提交了");
         console.log(this.textArea);
         console.log("提交了");
         //发送ajax,获取结果
@@ -642,18 +670,116 @@
         }
 
       },
-      selectItem01() {
+      selectItem01(value) {
+        console.log("value",value);
         let i = this.value01;
         switch (i) {
           case 1:
-            this.selectText01 = "一般";
-            return;
+            if(value = 1){
+              this.selectText01 = "很差";
+              return;
+            }
+            if(value = 2){
+              this.selectText02 = "很差";
+              return;
+            }
+            if(value = 3){
+              this.selectText03 = "很差";
+              return;
+            }
+            if(value = 4){
+              this.selectText04 = "很差";
+              return;
+            }
+            if(value = 5){
+              this.selectText05 = "很差";
+              return;
+            }
+
           case 2:
-            this.selectText01 = "优秀";
-            return;
+            if(value = 1){
+              this.selectText01 = "较差";
+              return;
+            }
+            if(value = 2){
+              this.selectText02 = "较差";
+              return;
+            }
+            if(value = 3){
+              this.selectText03 = "较差";
+              return;
+            }
+            if(value = 4){
+              this.selectText04 = "较差";
+              return;
+            }
+            if(value = 5){
+              this.selectText05 = "较差";
+              return;
+            }
           case 3:
-            this.selectText01 = "非常完美";
-            return;
+            if(value = 1){
+              this.selectText01 = "一般";
+              return;
+            }
+            if(value = 2){
+              this.selectText02 = "一般";
+              return;
+            }
+            if(value = 3){
+              this.selectText03 = "一般";
+              return;
+            }
+            if(value = 4){
+              this.selectText04 = "一般";
+              return;
+            }
+            if(value = 5){
+              this.selectText05 = "一般";
+              return;
+            }
+          case 4:
+            if(value = 1){
+              this.selectText01 = "完美";
+              return;
+            }
+            if(value = 2){
+              this.selectText02 = "完美";
+              return;
+            }
+            if(value = 3){
+              this.selectText03 = "完美";
+              return;
+            }
+            if(value = 4){
+              this.selectText04 = "完美";
+              return;
+            }
+            if(value = 5){
+              this.selectText05 = "完美";
+              return;
+            }
+          case 5:
+            if(value = 1){
+              this.selectText01 = "非常完美";
+              return;
+            }
+            if(value = 2){
+              this.selectText02 = "非常完美";
+              return;
+            }
+            if(value = 3){
+              this.selectText03 = "非常完美";
+              return;
+            }
+            if(value = 4){
+              this.selectText04 = "非常完美";
+              return;
+            }
+            if(value = 5){
+              this.selectText05 = "非常完美";
+              return;
+            }
         }
       },
       selectItem02() {
@@ -835,11 +961,11 @@
         value07: 0,
         value08: 0,
         value09: 0,
-        selectText01: '请选择',
-        selectText02: '请选择',
-        selectText03: '请选择',
-        selectText04: '请选择',
-        selectText05: '请选择',
+        selectText01: '请打分',
+        selectText02: '请打分',
+        selectText03: '请打分',
+        selectText04: '请打分',
+        selectText05: '请打分',
         selectText06: '一般',
         selectText07: '一般',
         selectText08: '一般',
@@ -862,7 +988,7 @@
     },
 
     mounted() {
-      //给录音按钮添加触摸和松手事件
+     /* //给录音按钮添加触摸和松手事件
       const targetButton = document.getElementById("target");
       console.log(targetButton);
       //添加触摸事件
@@ -884,7 +1010,7 @@
         //结束录音
         this.stopRecord();
 
-      })
+      })*/
     },
     created() {
       var url = window.location.href.split("?")[1];
