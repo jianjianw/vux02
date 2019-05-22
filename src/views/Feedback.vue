@@ -41,8 +41,7 @@
   }
 
   .show{
-
-    width:95%;
+    width:355px;
     height: 264px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -132,6 +131,7 @@
     text-align:center;
     font-size: 18px;
     line-height: 39px;
+    margin-bottom: 10px;
   }
   .btn:active{
     box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
@@ -148,6 +148,7 @@
     color: #ffffff;
     font-size: 18px;
     line-height: 39px;
+    margin-bottom: 10px;
   }
 
   .record-text{
@@ -167,6 +168,7 @@
     font-size: 11px;
     line-height: 21px;
     color: #606972;
+    margin-top: 10px;
   }
   .submit-btn{
     width: 289px;
@@ -280,7 +282,8 @@
               </flexbox-item>
               <flexbox-item :span=6>
                 <div class="center-title-font">
-                  <Rate v-model="value01" :count=5 @on-change="selectItem01" custom-icon="iconfont icon-shijian"/>
+                  <!--<Rate v-model="value01" :count=5 @on-change="selectItem01" custom-icon="iconfont icon-shijian"/>-->
+                  <Rate v-model="value01" :count=5 @on-change="selectItem01" icon="ios-heart"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -487,12 +490,13 @@
           </div>
           <div v-else class="record-voice">
           </div>
-          <!--<x-button id="target" type="primary">语音留言（按住说话）</x-button>-->
-          <div class="record-text">
+          <!--<div class="record-text">
             <group>
-              <x-textarea :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
+              <x-textarea autosize=true :height=150 :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
             </group>
-          </div>
+          </div>-->
+          <Input v-model="formItem"type="textarea" style="width: 325px" :maxlength="2000"  :autosize="{minRows: 5,maxRows: 10}" placeholder="语音留言会自动转化成汉字"></Input>
+
 
           <div class="sub-title">
             <span>练琴的建议可以让宝贝更快的成长</span>
