@@ -9,6 +9,8 @@ import iView from 'iview'  //引入ivew库
 import 'iview/dist/styles/iview.css'  // 使用 CSS
 import echarts from 'echarts'
 
+import './css/iconfont.css'
+
 
 
 Vue.use(iView);

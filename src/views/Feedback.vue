@@ -124,7 +124,7 @@
       </flexbox-item>
       <flexbox-item :span=6>
         <div class="center-title-font">
-          <Rate v-model="value01" :count=5  @on-change="selectItem01" icon="ios-heart" />
+          <Rate v-model="value01" :count=5  @on-change="selectItem01" custom-icon="iconfont icon-shijian"  />
         </div>
       </flexbox-item>
       <flexbox-item>
@@ -311,6 +311,7 @@
       <x-textarea :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
     </group>
     <x-button type="primary"  @click.native="submit">提交</x-button>
+    <i class="iconfont icon-shijian"></i>
 
   </div>
 
