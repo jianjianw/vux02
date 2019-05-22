@@ -1,4 +1,4 @@
-<style scoped>
+<style>
   .left-demo {
     text-align: left;
     color: #000;
@@ -99,6 +99,12 @@
     line-height: 200px;
     background-color: #fff;
     z-index: 100;
+  }
+  .ivu-rate-star-full:before, .ivu-rate-star-half .ivu-rate-star-content:before{
+    color:#7a8afe !important;
+  }
+  .ivu-rate-star-chart.ivu-rate-star-full .ivu-rate-star-first, .ivu-rate-star-chart.ivu-rate-star-full .ivu-rate-star-second{
+    color:#7a8afe !important;
   }
 
 

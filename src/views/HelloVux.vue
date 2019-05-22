@@ -22,12 +22,13 @@
       <x-textarea title="留言：" v-model="textArea"></x-textarea>
 
       <!--多选框-->
-      <checker v-model="selectList" type="checkbox" default-item-class="" selected-item-class="demo">
-        <checker-item @on-item-click="itemClick" v-for="i in [1, 2, 3, 4, 5]" :key="i" :value="i">${{" "+i}}
+      <checker v-model="selectArray" type="checkbox">
+        <checker-item @on-item-click="itemClick(index+1)" v-for="(item,index) in selectList" :key="index" :value="index+1">{{index+1}}
+          <i :class="item"></i>
         </checker-item>
       </checker>
       <span>
-              <icon type="success"></icon>选择了:  {{selectList}}
+              <icon type="success"></icon>选择了:  {{selectArray}}
       </span><br/>
 
       <!--<div v-for="(item,index) in list" style="background-color:yellow;text-align:center;">
@@ -194,13 +195,45 @@
         console.log('on show')
       },
       onConfirm (msg) {
-        console.log('on confirm')
+        console.log('on confirm');
         if (msg) {
           alert(msg)
         }
       },
-      itemClick() {
-        console.log("进来了", this.selectList)
+      itemClick(value) {
+
+        if(value == 1){
+          console.log("选择了",value);
+          this.selectList = [
+            'iconfont icon-icon-test',
+            'iconfont icon-shijian',
+            'iconfont icon-shijian',
+            'iconfont icon-shijian',
+            'iconfont icon-shijian',
+          ]
+        }
+        if(value == 2){
+          console.log("选择了",value);
+          //this.selectList.splice(0,2,'iconfont icon-icon-test','iconfont icon-icon-test');
+          this.selectList = [
+            'iconfont icon-icon-test',
+            'iconfont icon-icon-test',
+            'iconfont icon-shijian',
+            'iconfont icon-shijian',
+            'iconfont icon-shijian',
+          ]
+        }
+        if(value == 3){
+          console.log("选择了",value);
+          //this.selectList.splice(0,2,'iconfont icon-icon-test','iconfont icon-icon-test');
+          this.selectList = [
+            'iconfont icon-icon-test',
+            'iconfont icon-icon-test',
+            'iconfont icon-icon-test',
+            'iconfont icon-shijian',
+            'iconfont icon-shijian',
+          ]
+        }
       },
 
 
@@ -304,7 +337,14 @@
         username: '',
         select: true,
         textArea: '',
-        selectList: [],
+        selectList: [
+          'iconfont icon-shijian',
+          'iconfont icon-shijian',
+          'iconfont icon-shijian',
+          'iconfont icon-shijian',
+          'iconfont icon-shijian',
+        ],
+        selectArray:[],
         photos: [
         ],
         list: [
