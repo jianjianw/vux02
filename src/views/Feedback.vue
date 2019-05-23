@@ -249,9 +249,6 @@
   }
 
   .record-line {
-    position: absolute;
-    left: 100px;
-    top: 90%;
     z-index: 100;
   }
 
@@ -526,6 +523,10 @@
               </flexbox-item>
             </flexbox>
           </div>
+          <!--录音的效果-->
+          <div v-if="showVoiceEffect === true" class="record-line">
+            <spinner  type="lines" size="100px"></spinner>
+          </div>
           <!--<div class="record-text">
             <group>
               <x-textarea autosize=true :height=150 :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
@@ -547,10 +548,7 @@
         提交
       </div>
     </flexbox>
-    <!--录音的效果-->
-    <div v-if="showVoiceEffect === true" class="record-line">
-      <spinner  type="lines" size="100px"></spinner>
-    </div>
+
     <!--删除录音弹窗-->
     <div>
       <confirm v-model="show"
