@@ -136,6 +136,7 @@
     text-align: center;
     font-size: 18px;
     line-height: 39px;
+    margin-top: 10px;
     margin-bottom: 10px;
   }
 
@@ -155,6 +156,7 @@
     color: #ffffff;
     font-size: 18px;
     line-height: 39px;
+    margin-top: 10px;
     margin-bottom: 10px;
   }
 
