@@ -197,6 +197,7 @@
     text-align: center;
     font-size: 18px;
     line-height: 44px;
+    margin-bottom: 10px;
   }
 
   .submit-btn:active {
@@ -771,12 +772,18 @@
         let i = this.value02;
         switch (i) {
           case 1:
-            this.selectText02 = "一般";
+            this.selectText02 = "很差";
             return;
           case 2:
-            this.selectText02 = "优秀";
+            this.selectText02 = "较差";
             return;
           case 3:
+            this.selectText01 = "一般";
+            return;
+          case 4:
+            this.selectText02 = "完美";
+            return;
+          case 5:
             this.selectText02 = "非常完美";
             return;
         }
@@ -785,12 +792,18 @@
         let i = this.value03;
         switch (i) {
           case 1:
-            this.selectText03 = "一般";
+            this.selectText03 = "很差";
             return;
           case 2:
-            this.selectText03 = "优秀";
+            this.selectText03 = "较差";
             return;
           case 3:
+            this.selectText03 = "一般";
+            return;
+          case 4:
+            this.selectText03 = "完美";
+            return;
+          case 5:
             this.selectText03 = "非常完美";
             return;
         }
@@ -799,12 +812,18 @@
         let i = this.value04;
         switch (i) {
           case 1:
-            this.selectText04 = "一般";
+            this.selectText04 = "很差";
             return;
           case 2:
-            this.selectText04 = "优秀";
+            this.selectText04 = "较差";
             return;
           case 3:
+            this.selectText04 = "一般";
+            return;
+          case 4:
+            this.selectText04 = "完美";
+            return;
+          case 5:
             this.selectText04 = "非常完美";
             return;
         }
@@ -813,12 +832,18 @@
         let i = this.value05;
         switch (i) {
           case 1:
-            this.selectText05 = "一般";
+            this.selectText05 = "很差";
             return;
           case 2:
-            this.selectText05 = "优秀";
+            this.selectText05 = "较差";
             return;
           case 3:
+            this.selectText05 = "一般";
+            return;
+          case 4:
+            this.selectText05 = "完美";
+            return;
+          case 5:
             this.selectText05 = "非常完美";
             return;
         }
@@ -829,12 +854,6 @@
           case 1:
             this.selectText06 = "准确";
             return;
-          case 2:
-            this.selectText06 = "优秀";
-            return;
-          case 3:
-            this.selectText06 = "非常完美";
-            return;
         }
       },
 
@@ -843,12 +862,6 @@
         switch (i) {
           case 1:
             this.selectText07 = "准确";
-            return;
-          case 2:
-            this.selectText07 = "优秀";
-            return;
-          case 3:
-            this.selectText07 = "非常完美";
             return;
         }
       },
@@ -859,12 +872,6 @@
           case 1:
             this.selectText08 = "连贯";
             return;
-          case 2:
-            this.selectText08 = "优秀";
-            return;
-          case 3:
-            this.selectText08 = "非常完美";
-            return;
         }
       },
 
@@ -873,13 +880,6 @@
         switch (i) {
           case 1:
             this.selectText09 = "集中";
-            return;
-          case 2:
-            this.selectText09 = "优秀";
-            return;
-          case 3:
-            this.selectText09 = "非常完美";
-            return;
         }
       },
 
