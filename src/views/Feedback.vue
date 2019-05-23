@@ -99,7 +99,7 @@
 
   .music-area {
     width: 355px;
-    height: 392px;
+    height: auto;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0px 0px 2px rgba(4, 0, 0, 0.1);
