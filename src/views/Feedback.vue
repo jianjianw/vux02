@@ -1,6 +1,6 @@
 <style>
   .container {
-    background: #DCDCDC;
+    background: #f5f5f5;
     width: 100%;
   }
 
@@ -729,7 +729,7 @@
 
         if (isMiniProgram) {//小程序
           //先返回页面
-          wx.miniProgram.navigateBack({delta: 1})
+          wx.miniProgram.navigateBack({delta: 1});
           //后触发事件返回数据
           wx.miniProgram.postMessage({
             code: 200,
