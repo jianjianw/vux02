@@ -309,8 +309,7 @@
               </flexbox-item>
               <flexbox-item :span=6>
                 <div class="center-title-font">
-                  <!--<Rate v-model="value01" :count=5 @on-change="selectItem01" custom-icon="iconfont icon-shijian"/>-->
-                  <Rate v-model="value01" :count=5 @on-change="selectItem01(1)" icon="ios-heart"/>
+                  <Rate v-model="value01" :count=5 @on-change="selectItem01" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -328,7 +327,7 @@
               </flexbox-item>
               <flexbox-item :span=6>
                 <div class="center-title-font">
-                  <Rate v-model="value02" :count=5 @on-change="selectItem02" icon="ios-heart"/>
+                  <Rate v-model="value02" :count=5 @on-change="selectItem02" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -346,7 +345,7 @@
               </flexbox-item>
               <flexbox-item :span=6>
                 <div class="center-title-font">
-                  <Rate v-model="value03" :count=5 @on-change="selectItem03" icon="ios-heart"/>
+                  <Rate v-model="value03" :count=5 @on-change="selectItem03" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -364,7 +363,7 @@
               </flexbox-item>
               <flexbox-item :span=6>
                 <div class="center-title-font">
-                  <Rate v-model="value04" :count=5 @on-change="selectItem04" icon="ios-heart"/>
+                  <Rate v-model="value04" :count=5 @on-change="selectItem04" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -382,7 +381,7 @@
               </flexbox-item>
               <flexbox-item :span=6>
                 <div class="center-title-font">
-                  <Rate v-model="value05" :count=5 @on-change="selectItem05" icon="ios-heart"/>
+                  <Rate v-model="value05" :count=5 @on-change="selectItem05" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -428,7 +427,7 @@
                       multiple
                       type="drag">
                 <div v-if="uploadList.length < 1" class="music-item">
-                  <i class="iconfont icon-jia"></i>
+                  <i class="iconfont iconwifi"></i>
                 </div>
               </Upload>
               <Modal title="查看" v-model="visible" footer-hide>
@@ -446,7 +445,7 @@
               </flexbox-item>
               <flexbox-item>
                 <div class="center-title-font">
-                  <Rate v-model="value06" :count=1 @on-change="selectItem06" icon="ios-heart"/>
+                  <Rate v-model="value06" :count=1 @on-change="selectItem06" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -458,7 +457,7 @@
               </flexbox-item>
               <flexbox-item>
                 <div class="center-title-font">
-                  <Rate v-model="value07" :count=1 @on-change="selectItem07" icon="ios-heart"/>
+                  <Rate v-model="value07" :count=1 @on-change="selectItem07" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -478,7 +477,7 @@
               </flexbox-item>
               <flexbox-item>
                 <div class="center-title-font">
-                  <Rate v-model="value08" :count=1 @on-change="selectItem08" icon="ios-heart"/>
+                  <Rate v-model="value08" :count=1 @on-change="selectItem08" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -490,7 +489,7 @@
               </flexbox-item>
               <flexbox-item>
                 <div class="center-title-font">
-                  <Rate v-model="value09" :count=1 @on-change="selectItem09" icon="ios-heart"/>
+                  <Rate v-model="value09" :count=1 @on-change="selectItem09" custom-icon="iconfont iconxin"/>
                 </div>
               </flexbox-item>
               <flexbox-item>
@@ -514,7 +513,7 @@
           <!--已经添加事件-->
           <div v-if="!recordFlag" @touchstart.stop.prevent="submit01" @touchend.stop.prevent="submit02"  class="btn">
             <flexbox justify="space-around">
-              <span class="iconfont icon-yuyin"></span>
+              <span class="iconfont iconhuatong"></span>
               <span>语音留言（按住说话)</span>
               <span></span>
             </flexbox>
@@ -523,7 +522,7 @@
           <div v-if="recordFlag" class="record-voice"  @touchend.stop.prevent="clearTime" @touchstart.stop.prevent="playVoice">
             <flexbox>
               <flexbox-item :span=1>
-                <i class="iconfont icon-icon_yuyinbofang padding-left-right "></i>
+                <i class="iconfont iconwifi padding-left-right "></i>
               </flexbox-item>
               <flexbox-item :span=11>
                 <span>37"</span>
@@ -749,115 +748,23 @@
 
       },
       selectItem01(value) {
-        console.log("value", value);
         let i = this.value01;
         switch (i) {
           case 1:
-            if (value = 1) {
-              this.selectText01 = "很差";
-              return;
-            }
-            if (value = 2) {
-              this.selectText02 = "很差";
-              return;
-            }
-            if (value = 3) {
-              this.selectText03 = "很差";
-              return;
-            }
-            if (value = 4) {
-              this.selectText04 = "很差";
-              return;
-            }
-            if (value = 5) {
-              this.selectText05 = "很差";
-              return;
-            }
-
+            this.selectText01 = "很差";
+            return;
           case 2:
-            if (value = 1) {
-              this.selectText01 = "较差";
-              return;
-            }
-            if (value = 2) {
-              this.selectText02 = "较差";
-              return;
-            }
-            if (value = 3) {
-              this.selectText03 = "较差";
-              return;
-            }
-            if (value = 4) {
-              this.selectText04 = "较差";
-              return;
-            }
-            if (value = 5) {
-              this.selectText05 = "较差";
-              return;
-            }
+            this.selectText01 = "较差";
+            return;
           case 3:
-            if (value = 1) {
               this.selectText01 = "一般";
               return;
-            }
-            if (value = 2) {
-              this.selectText02 = "一般";
-              return;
-            }
-            if (value = 3) {
-              this.selectText03 = "一般";
-              return;
-            }
-            if (value = 4) {
-              this.selectText04 = "一般";
-              return;
-            }
-            if (value = 5) {
-              this.selectText05 = "一般";
-              return;
-            }
           case 4:
-            if (value = 1) {
               this.selectText01 = "完美";
               return;
-            }
-            if (value = 2) {
-              this.selectText02 = "完美";
-              return;
-            }
-            if (value = 3) {
-              this.selectText03 = "完美";
-              return;
-            }
-            if (value = 4) {
-              this.selectText04 = "完美";
-              return;
-            }
-            if (value = 5) {
-              this.selectText05 = "完美";
-              return;
-            }
           case 5:
-            if (value = 1) {
               this.selectText01 = "非常完美";
               return;
-            }
-            if (value = 2) {
-              this.selectText02 = "非常完美";
-              return;
-            }
-            if (value = 3) {
-              this.selectText03 = "非常完美";
-              return;
-            }
-            if (value = 4) {
-              this.selectText04 = "非常完美";
-              return;
-            }
-            if (value = 5) {
-              this.selectText05 = "非常完美";
-              return;
-            }
         }
       },
       selectItem02() {

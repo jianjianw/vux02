@@ -238,7 +238,9 @@
         </flexbox-item>
         <flexbox-item>
           <div class="rate-font">
-            <Rate v-model="value08" disabled :count=1 icon="ios-heart"/>
+            <img src="../photo/xin01.png" height="20" width="20">  </img>
+            <!--<Rate v-model="value08" disabled :count=1 icon="ios-heart"/>-->
+
           </div>
         </flexbox-item>
         <flexbox-item>
@@ -250,7 +252,8 @@
         </flexbox-item>
         <flexbox-item>
           <div class="rate-font">
-            <Rate v-model="value09" disabled :count=1 icon="ios-heart"/>
+            <img src="../photo/xin01.png" height="20" width="20">  </img>
+            <!--<Rate v-model="value09" disabled :count=1 icon="ios-heart"/>-->
           </div>
         </flexbox-item>
         <flexbox-item>
