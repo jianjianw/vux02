@@ -249,11 +249,10 @@
     position: absolute;
     opacity: 0.5;
     left: 100px;
-    top: 50%;
+    top: 90%;
     height: 200px;
     width: 200px;
     line-height: 200px;
-    background-color: #fff;
     z-index: 100;
   }
 
@@ -511,7 +510,7 @@
           <!--相册-->
           <div class="line"></div>
           <!--已经添加事件-->
-          <div v-if="!recordFlag" @touchend.stop.prevent="submit02" @touchstart.stop.prevent="submit01" class="btn">
+          <div v-if="!recordFlag" @touchstart.stop.prevent="submit01" @touchend.stop.prevent="submit02"  class="btn">
             <flexbox justify="space-around">
               <span class="iconfont icon-yuyin"></span>
               <span>语音留言（按住说话)</span>
@@ -519,7 +518,6 @@
             </flexbox>
           </div>
           <!--录音成功,显示录制的语音-->
-          <!-- @click="playVoice"-->
           <div v-if="recordFlag" class="record-voice"  @touchend.stop.prevent="clearTime" @touchstart.stop.prevent="playVoice">
             <flexbox>
               <flexbox-item :span=1>
@@ -533,9 +531,6 @@
               </flexbox-item>
             </flexbox>
           </div>
-          <span class="iconfont icon-Close" @click="deleteVoice"></span>
-
-
           <!--<div class="record-text">
             <group>
               <x-textarea autosize=true :height=150 :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
@@ -543,7 +538,6 @@
           </div>-->
           <Input type="textarea" style="width: 325px" :maxlength="2000" :autosize="{minRows: 5,maxRows: 10}"
                  placeholder="语音留言会自动转化成汉字"></Input>
-
 
           <div class="sub-title">
             <span>练琴的建议可以让宝贝更快的成长</span>
@@ -559,10 +553,9 @@
       </div>
     </flexbox>
     <!--录音的效果-->
-    <!--  <div class="record-line">
+    <div class="record-line">
       <spinner v-if="show === true" type="lines" size="100px"></spinner>
-    </div>-->
-    <!--<x-button type="primary" @click.native="submit">提交</x-button>-->
+    </div>
   </div>
 
 </template>
@@ -615,6 +608,8 @@
         if(!this.isLongPress){
           console.log("播放语音");
         }
+        //关闭长按
+        this.isLongPress = false;
 
       },
       //录音
@@ -677,11 +672,16 @@
 
       //录音成功
       submit01() {
+        //开始录音
+        this.show = true;
         console.log("01ok");
 
       },
       submit02() {
+        //结束录音
+        this.show = false;
         console.log("02ok");
+        //录音成功替换按钮
         this.recordFlag = true;
       },
 
