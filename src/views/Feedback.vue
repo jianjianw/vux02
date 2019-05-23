@@ -1,8 +1,9 @@
 <style>
-  .container{
-    background:#DCDCDC;
+  .container {
+    background: #DCDCDC;
     width: 100%;
   }
+
   .name-font {
     width: 63px;
     height: 29px;
@@ -24,7 +25,7 @@
     border-color: #6071ee;
   }
 
-  .date-time-font{
+  .date-time-font {
     width: 116px;
     height: 9px;
     opacity: 0.8;
@@ -34,14 +35,14 @@
     margin-top: 5px;
   }
 
-  .header-area{
+  .header-area {
     width: 100%;
     height: 60px;
     background-color: #ffffff;
   }
 
-  .show{
-    width:355px;
+  .show {
+    width: 355px;
     height: 264px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -49,6 +50,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
   .title-font {
     text-align: left;
     width: 60px;
@@ -59,7 +61,7 @@
     margin: 10px 10px 10px 15px;
   }
 
-  .line{
+  .line {
     width: 325px;
     height: 1px;
     background-color: #dcdcdc;
@@ -67,7 +69,7 @@
     margin-top: 5px;
   }
 
-  .show-item{
+  .show-item {
     width: 325px;
     height: 30px;
   }
@@ -76,10 +78,11 @@
     width: 80px;
     height: 12px;
     font-size: 12px;
-    color:#3f454a ;
+    color: #3f454a;
     margin-bottom: 5px;
 
   }
+
   .center-title-font {
     width: 169px;
     height: 25px;
@@ -90,18 +93,19 @@
     width: 48px;
     height: 12px;
     font-size: 12px;
-    color:#5f6972 ;
+    color: #5f6972;
     margin-bottom: 5px;
   }
 
-  .music-area{
+  .music-area {
     width: 355px;
     height: 392px;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0px 0px 2px rgba(4, 0, 0, 0.1);
   }
-  .music-item{
+
+  .music-item {
     width: 80px;
     height: 115px;
     line-height: 115px;
@@ -112,7 +116,7 @@
     border-color: #5f6972
   }
 
-  .foot-area{
+  .foot-area {
     width: 355px;
     height: 294px;
     border-radius: 10px;
@@ -121,26 +125,28 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  .btn{
+
+  .btn {
     width: 317px;
     height: 39px;
     opacity: 0.8;
     border-radius: 5px;
     background-color: #404040;
     color: #ffffff;
-    text-align:center;
+    text-align: center;
     font-size: 18px;
     line-height: 39px;
     margin-bottom: 10px;
   }
-  .btn:active{
-    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
-    border-color: rgba(0,0,0,.3);
+
+  .btn:active {
+    box-shadow: .05em .1em .2em rgba(0, 0, 0, .6) inset;
+    border-color: rgba(0, 0, 0, .3);
     background: #404040;
     opacity: 0.5;
   }
 
-  .record-voice{
+  .record-voice {
     width: 317px;
     height: 39px;
     opacity: 0.8;
@@ -151,14 +157,15 @@
     line-height: 39px;
     margin-bottom: 10px;
   }
-  .record-voice:active{
-    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
-    border-color: rgba(0,0,0,.3);
+
+  .record-voice:active {
+    box-shadow: .05em .1em .2em rgba(0, 0, 0, .6) inset;
+    border-color: rgba(0, 0, 0, .3);
     background: #404040;
     opacity: 0.5;
   }
 
-  .record-text{
+  .record-text {
     width: 325px;
     height: 150px;
     border-radius: 4px;
@@ -169,6 +176,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
   .sub-title {
     width: 180px;
     height: 11px;
@@ -177,22 +185,25 @@
     color: #606972;
     margin-top: 10px;
   }
-  .submit-btn{
+
+  .submit-btn {
     width: 289px;
     height: 44px;
     border-radius: 22px;
     background-color: #7a8afe;
     color: #ffffff;
-    text-align:center;
+    text-align: center;
     font-size: 18px;
     line-height: 44px;
   }
-  .submit-btn:active{
-    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
-    border-color: rgba(0,0,0,.3);
+
+  .submit-btn:active {
+    box-shadow: .05em .1em .2em rgba(0, 0, 0, .6) inset;
+    border-color: rgba(0, 0, 0, .3);
     background: #7A8AFE;
     opacity: 0.5;
   }
+
   .demo-upload-list {
     display: inline-block;
     width: 60px;
@@ -254,6 +265,13 @@
     color: #7a8afe !important;
   }
 
+  .padding-left-right {
+    padding: 0px 10px 0px 10px;
+  }
+  .voice-close{
+    margin-bottom: 20px;
+  }
+
 
 </style>
 <template>
@@ -268,7 +286,7 @@
         <div>
           <div class="minute">50分钟</div>
           <div class="date-time-font">
-            <span >2019年9月9日09:00</span>
+            <span>2019年9月9日09:00</span>
           </div>
         </div>
       </flexbox>
@@ -409,7 +427,7 @@
                       multiple
                       type="drag">
                 <div v-if="uploadList.length < 1" class="music-item">
-                  <i class="iconfont icon-jia" ></i>
+                  <i class="iconfont icon-jia"></i>
                 </div>
               </Upload>
               <Modal title="查看" v-model="visible" footer-hide>
@@ -451,7 +469,7 @@
           <!-- 弹奏连贯性-->
           <div class="line"></div>
           <div class="show-item">
-            <flexbox >
+            <flexbox>
               <flexbox-item :span=3>
                 <div class="left-title-font">
                   弹奏连贯性：
@@ -493,16 +511,29 @@
           <!--相册-->
           <div class="line"></div>
           <!--已经添加事件-->
-          <!--  @touchstart.stop.prevent="submit01" -->
-          <div v-if="!recordFlag" @touchend.stop.prevent="submit02" @touchstart.stop.prevent="submit01" class="btn" >
-            <i  class="iconfont icon-shijian"></i> 语音留言（按住说话）
+          <div v-if="!recordFlag" @touchend.stop.prevent="submit02" @touchstart.stop.prevent="submit01" class="btn">
+            <flexbox justify="space-around">
+              <span class="iconfont icon-yuyin"></span>
+              <span>语音留言（按住说话)</span>
+              <span></span>
+            </flexbox>
           </div>
-          <!--录音成功开始显示  @click="playVoice"-->
-          <div v-if="recordFlag"  class="record-voice">
-            <i class="iconfont icon-tongzhi"></i>
-            <span name="time" >37</span>
+          <!--录音成功,显示录制的语音-->
+          <!-- @click="playVoice"-->
+          <div v-if="recordFlag" class="record-voice"  @touchend.stop.prevent="clearTime" @touchstart.stop.prevent="playVoice">
+            <flexbox>
+              <flexbox-item :span=1>
+                <i class="iconfont icon-icon_yuyinbofang padding-left-right "></i>
+              </flexbox-item>
+              <flexbox-item :span=11>
+                <span>37"</span>
+              </flexbox-item>
+              <flexbox-item>
+                  <span class="iconfont icon-Close" @click="deleteVoice"></span>
+              </flexbox-item>
+            </flexbox>
           </div>
-
+          <span class="iconfont icon-Close" @click="deleteVoice"></span>
 
 
           <!--<div class="record-text">
@@ -510,7 +541,8 @@
               <x-textarea autosize=true :height=150 :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
             </group>
           </div>-->
-          <Input type="textarea" style="width: 325px" :maxlength="2000"  :autosize="{minRows: 5,maxRows: 10}" placeholder="语音留言会自动转化成汉字"></Input>
+          <Input type="textarea" style="width: 325px" :maxlength="2000" :autosize="{minRows: 5,maxRows: 10}"
+                 placeholder="语音留言会自动转化成汉字"></Input>
 
 
           <div class="sub-title">
@@ -561,11 +593,29 @@
       Spinner
     },
     methods: {
-
+      //删除语音
+      deleteVoice(){
+        console.log("删除语音");
+      },
 
       //播放语音
-      playVoice(){
-        console.log("播放语音");
+      playVoice() {
+        clearTimeout(this.Loop); //再次清空定时器，防止重复注册定时器
+        this.Loop = setTimeout(function() {
+          //长按
+          this.isLongPress = true;
+          alert('是否确认删除')
+        }.bind(this), 2000);
+
+      },
+      clearTime() {
+        // 这个方法主要是用来将每次手指移出之后将计时器清零
+        clearInterval(this.Loop);
+        //录音没删除就播放
+        if(!this.isLongPress){
+          console.log("播放语音");
+        }
+
       },
       //录音
       startRecord() {
@@ -626,11 +676,11 @@
       },
 
       //录音成功
-      submit01(){
+      submit01() {
         console.log("01ok");
 
       },
-      submit02(){
+      submit02() {
         console.log("02ok");
         this.recordFlag = true;
       },
@@ -676,112 +726,112 @@
 
       },
       selectItem01(value) {
-        console.log("value",value);
+        console.log("value", value);
         let i = this.value01;
         switch (i) {
           case 1:
-            if(value = 1){
+            if (value = 1) {
               this.selectText01 = "很差";
               return;
             }
-            if(value = 2){
+            if (value = 2) {
               this.selectText02 = "很差";
               return;
             }
-            if(value = 3){
+            if (value = 3) {
               this.selectText03 = "很差";
               return;
             }
-            if(value = 4){
+            if (value = 4) {
               this.selectText04 = "很差";
               return;
             }
-            if(value = 5){
+            if (value = 5) {
               this.selectText05 = "很差";
               return;
             }
 
           case 2:
-            if(value = 1){
+            if (value = 1) {
               this.selectText01 = "较差";
               return;
             }
-            if(value = 2){
+            if (value = 2) {
               this.selectText02 = "较差";
               return;
             }
-            if(value = 3){
+            if (value = 3) {
               this.selectText03 = "较差";
               return;
             }
-            if(value = 4){
+            if (value = 4) {
               this.selectText04 = "较差";
               return;
             }
-            if(value = 5){
+            if (value = 5) {
               this.selectText05 = "较差";
               return;
             }
           case 3:
-            if(value = 1){
+            if (value = 1) {
               this.selectText01 = "一般";
               return;
             }
-            if(value = 2){
+            if (value = 2) {
               this.selectText02 = "一般";
               return;
             }
-            if(value = 3){
+            if (value = 3) {
               this.selectText03 = "一般";
               return;
             }
-            if(value = 4){
+            if (value = 4) {
               this.selectText04 = "一般";
               return;
             }
-            if(value = 5){
+            if (value = 5) {
               this.selectText05 = "一般";
               return;
             }
           case 4:
-            if(value = 1){
+            if (value = 1) {
               this.selectText01 = "完美";
               return;
             }
-            if(value = 2){
+            if (value = 2) {
               this.selectText02 = "完美";
               return;
             }
-            if(value = 3){
+            if (value = 3) {
               this.selectText03 = "完美";
               return;
             }
-            if(value = 4){
+            if (value = 4) {
               this.selectText04 = "完美";
               return;
             }
-            if(value = 5){
+            if (value = 5) {
               this.selectText05 = "完美";
               return;
             }
           case 5:
-            if(value = 1){
+            if (value = 1) {
               this.selectText01 = "非常完美";
               return;
             }
-            if(value = 2){
+            if (value = 2) {
               this.selectText02 = "非常完美";
               return;
             }
-            if(value = 3){
+            if (value = 3) {
               this.selectText03 = "非常完美";
               return;
             }
-            if(value = 4){
+            if (value = 4) {
               this.selectText04 = "非常完美";
               return;
             }
-            if(value = 5){
+            if (value = 5) {
               this.selectText05 = "非常完美";
               return;
             }
@@ -988,34 +1038,36 @@
         //录音效果显示
         show: false,
         //录音是否成功
-        recordFlag:false
+        recordFlag: false,
+        //删除录音成功
+        isLongPress:false
       }
     },
 
     mounted() {
-     /* //给录音按钮添加触摸和松手事件
-      const targetButton = document.getElementById("target");
-      console.log(targetButton);
-      //添加触摸事件
-      targetButton.addEventListener("touchstart", e => {
-        e.preventDefault();
-        console.log("添加触摸事件");
-        //判断当前环境
+      /* //给录音按钮添加触摸和松手事件
+       const targetButton = document.getElementById("target");
+       console.log(targetButton);
+       //添加触摸事件
+       targetButton.addEventListener("touchstart", e => {
+         e.preventDefault();
+         console.log("添加触摸事件");
+         //判断当前环境
 
-        this.show = true;
-        //录音
-        this.startRecord();
+         this.show = true;
+         //录音
+         this.startRecord();
 
-      });
-      //添加松手事件
-      targetButton.addEventListener('touchend', e => {
-        e.preventDefault();
-        console.log("添加松手事件");
-        this.show = false;
-        //结束录音
-        this.stopRecord();
+       });
+       //添加松手事件
+       targetButton.addEventListener('touchend', e => {
+         e.preventDefault();
+         console.log("添加松手事件");
+         this.show = false;
+         //结束录音
+         this.stopRecord();
 
-      })*/
+       })*/
     },
     created() {
       var url = window.location.href.split("?")[1];
