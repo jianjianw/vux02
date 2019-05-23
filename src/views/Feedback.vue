@@ -526,9 +526,6 @@
               <flexbox-item :span=11>
                 <span>37"</span>
               </flexbox-item>
-              <flexbox-item>
-                  <span class="iconfont icon-Close" @click="deleteVoice"></span>
-              </flexbox-item>
             </flexbox>
           </div>
           <!--<div class="record-text">
@@ -554,7 +551,16 @@
     </flexbox>
     <!--录音的效果-->
     <div class="record-line">
-      <spinner v-if="show === true" type="lines" size="100px"></spinner>
+      <spinner v-if="showVoiceEffect === true" type="lines" size="100px"></spinner>
+    </div>
+    <!--删除录音弹窗-->
+    <div>
+      <confirm v-model="show"
+               title="nimei"
+               @on-cancel="onCancel"
+               @on-confirm="onConfirm">
+        <p style="text-align:center;">确定删除语音吗</p>
+      </confirm>
     </div>
   </div>
 
@@ -563,7 +569,7 @@
 <script>
   import {
     Group, Grid, GridItem, GroupTitle, Flexbox, FlexboxItem, Checker, CheckerItem, Icon, Checklist, XHeader,
-    XTextarea, XButton, Spinner
+    XTextarea, XButton, Spinner,Confirm
   } from 'vux'
   import wx from 'weixin-js-sdk'
 
@@ -583,11 +589,24 @@
       XHeader,
       XTextarea,
       XButton,
-      Spinner
+      Spinner,
+      Confirm
     },
     methods: {
+
+      //取消删除语音
+      onCancel () {
+        console.log('on cancel');
+      },
+      //确认删除语音
+      onConfirm (msg) {
+       this.deleteVoice();
+      },
+
       //删除语音
       deleteVoice(){
+        //将成功置为false;
+        this.recordFlag = false;
         console.log("删除语音");
       },
 
@@ -597,8 +616,10 @@
         this.Loop = setTimeout(function() {
           //长按
           this.isLongPress = true;
-          alert('是否确认删除')
-        }.bind(this), 2000);
+          //打开删除动效
+          this.show = true;
+          //alert('是否确认删除')
+        }.bind(this), 1000);
 
       },
       clearTime() {
@@ -673,13 +694,13 @@
       //录音成功
       submit01() {
         //开始录音
-        this.show = true;
+        this.showVoiceEffect = true;
         console.log("01ok");
 
       },
       submit02() {
         //结束录音
-        this.show = false;
+        this.showVoiceEffect = false;
         console.log("02ok");
         //录音成功替换按钮
         this.recordFlag = true;
@@ -1036,11 +1057,14 @@
         uploadList: [],
         uploadUrl: '',
         //录音效果显示
-        show: false,
+        showVoiceEffect: false,
         //录音是否成功
         recordFlag: false,
-        //删除录音成功
-        isLongPress:false
+        //是否长按录音成功
+        isLongPress:false,
+        //显示删除提示框
+        show:false
+
       }
     },
 
