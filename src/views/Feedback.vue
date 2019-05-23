@@ -552,9 +552,9 @@
       </div>
     </flexbox>
     <!--录音的效果-->
-    <div class="record-line">
+   <!-- <div class="record-line">
       <spinner v-if="showVoiceEffect === true" type="lines" size="100px"></spinner>
-    </div>
+    </div>-->
     <!--删除录音弹窗-->
     <div>
       <confirm v-model="show"
