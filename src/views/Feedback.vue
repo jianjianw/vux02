@@ -493,13 +493,14 @@
           <!--相册-->
           <div class="line"></div>
           <!--已经添加事件-->
-
-          <div v-if="!recordFlag"  @touchstart="submit01" @touchend="submit02" class="btn" >
-            <i class="iconfont icon-shijian"></i> 语音留言（按住说话）
+          <!--  @touchstart.stop.prevent="submit01" -->
+          <div v-if="!recordFlag" @touchend.stop.prevent="submit02" @touchstart.stop.prevent="submit01" class="btn" >
+            <i  class="iconfont icon-shijian"></i> 语音留言（按住说话）
           </div>
-          <!--录音成功开始显示-->
-          <div v-if="recordFlag"  class="record-voice" @click="submit">
-            <i class="iconfont icon-tongzhi"></i> 37
+          <!--录音成功开始显示  @click="playVoice"-->
+          <div v-if="recordFlag"  class="record-voice">
+            <i class="iconfont icon-tongzhi"></i>
+            <span name="time" >37</span>
           </div>
 
 
@@ -560,6 +561,12 @@
       Spinner
     },
     methods: {
+
+
+      //播放语音
+      playVoice(){
+        console.log("播放语音");
+      },
       //录音
       startRecord() {
         wx.startRecord({
@@ -621,13 +628,11 @@
       //录音成功
       submit01(){
         console.log("01ok");
-        this.recordFlag = true;
-        alert("01ok");
+
       },
       submit02(){
         console.log("02ok");
-        //this.recordFlag = true;
-        alert("02ok");
+        this.recordFlag = true;
       },
 
 
