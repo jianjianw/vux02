@@ -250,12 +250,8 @@
 
   .record-line {
     position: absolute;
-    opacity: 0.5;
     left: 100px;
     top: 90%;
-    height: 200px;
-    width: 200px;
-    line-height: 200px;
     z-index: 100;
   }
 
