@@ -1,7 +1,7 @@
 <style>
 
   #app {
-    margin-top: 10px !important;
+    margin-top: 0px !important;
   }
   .container {
     background: #f5f5f5;
@@ -42,7 +42,6 @@
   .header-area {
     width: 100%;
     height: 60px;
-    background-color: #ffffff;
   }
 
   .show {
@@ -237,14 +236,13 @@
 </style>
 <template>
   <div class="container">
-    <!--<x-header>This is the page title.</x-header>-->
     <div class="header-area">
       <flexbox justify="space-between">
-        <div>
+        <div style="margin-top: 10px">
           <span class="name-font">童童</span>
         </div>
 
-        <div>
+        <div style="margin-top: 10px">
           <div class="minute">50分钟</div>
           <div class="date-time-font">
             <span>2019年9月9日09:00</span>
