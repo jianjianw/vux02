@@ -521,7 +521,6 @@
           //提示信息
           tooltip: {//提示信息不超出屏幕
             confine: true,
-            enterable: true,
             //自定义提示信息
            /* formatter: function(datas)
             {
