@@ -839,56 +839,6 @@
           case 1:
             this.selectText09 = "集中";
         }
-      },
-
-      handleView(id, name) {
-        if (!id) return;
-        this.imgName = name;
-        this.visible = true;
-      },
-
-      handleRemove(file) {
-        this.showUpload = true;
-        this.feedback.fileId = '';
-        this.uploadList.splice(this.uploadList.indexOf(file), 1);
-      },
-
-      handleSuccess(res, file) {
-        this.showUpload = false;
-
-        let fileId = res.data;
-        this.feedback.fileId = fileId;
-        this.$set(this.feedback, 'fileId', fileId);
-        file.url = this.previewImg(fileId);
-        file.name = '';
-
-        this.uploadList.push({id: fileId, name: '', url: this.previewImg(fileId), status: 'finished'});
-      },
-
-      // 文件上传失败时的钩子，返回字段为 error, file, fileList
-      handleError(res, file) {
-        this.$Message.error({
-          content: '文件上传失败:' + file.data,
-          duration: 20,
-        });
-      },
-
-      // 文件格式验证失败时的钩子，返回字段为 file, fileList
-      handleFormatError(file) {
-        this.$Modal.warning({
-          title: '文件格式不正确',
-          content: '只支持\'jpg\',\'jpeg\',\'png\'格式的图片文件',
-          duration: 20,
-        });
-      },
-
-      // 文件超出指定大小限制时的钩子，返回字段为 file, fileList
-      handleMaxSize(file) {
-        this.$Modal.warning({
-          title: '上传文件过大',
-          content: '上传的图片文件，不得超过10M',
-          duration: 20,
-        });
       }
 
     },
@@ -936,29 +886,6 @@
     },
 
     mounted() {
-      /* //给录音按钮添加触摸和松手事件
-       const targetButton = document.getElementById("target");
-       console.log(targetButton);
-       //添加触摸事件
-       targetButton.addEventListener("touchstart", e => {
-         e.preventDefault();
-         console.log("添加触摸事件");
-         //判断当前环境
-
-         this.show = true;
-         //录音
-         this.startRecord();
-
-       });
-       //添加松手事件
-       targetButton.addEventListener('touchend', e => {
-         e.preventDefault();
-         console.log("添加松手事件");
-         this.show = false;
-         //结束录音
-         this.stopRecord();
-
-       })*/
     },
     created() {
       var url = window.location.href.split("?")[1];
