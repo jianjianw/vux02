@@ -118,7 +118,7 @@
 
   .foot-area {
     width: 355px;
-    height: 294px;
+    height: auto;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0px 0px 2px rgba(4, 0, 0, 0.1);
@@ -183,9 +183,8 @@
     width: 180px;
     height: 11px;
     font-size: 11px;
-    line-height: 21px;
     color: #606972;
-    margin-top: 10px;
+    margin: 10px 0px 15px 15px;
   }
 
   .submit-btn {
@@ -429,7 +428,6 @@
           <span>练琴建议</span>
         </div>
         <flexbox orient="vertical">
-          <!--相册-->
           <div class="line"></div>
           <!--已经添加事件-->
           <div v-if="!recordFlag" @touchstart.stop.prevent="submit01" @touchend.stop.prevent="submit02"  class="btn">
@@ -459,14 +457,12 @@
               <x-textarea autosize=true :height=150 :max="200" placeholder="语音留言会自动转化成汉字"></x-textarea>
             </group>
           </div>-->
-          <Input type="textarea" style="width: 325px" :maxlength="2000" :autosize="{minRows: 5,maxRows: 10}"
+          <Input type="textarea" style="width: 325px" :maxlength="200" :autosize="{minRows: 5,maxRows: 10}"
                  placeholder="语音留言会自动转化成汉字"></Input>
-
-          <div class="sub-title">
-            <span>练琴的建议可以让宝贝更快的成长</span>
-          </div>
-
         </flexbox>
+        <div class="sub-title">
+          <span>练琴的建议可以让宝贝更快的成长</span>
+        </div>
       </div>
     </flexbox>
 
