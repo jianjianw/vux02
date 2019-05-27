@@ -522,6 +522,12 @@
           tooltip: {//提示信息不超出屏幕
             confine: true,
             enterable: true,
+            //自定义提示信息
+           /* formatter: function(datas)
+            {
+              var res = 'nimei' + '<br/>' + 'nige' + '<br/>';
+              return res;
+            }*/
           },
           radar: {
             shape: 'circle',
@@ -573,7 +579,7 @@
               width:0,
             },
             //拐点的颜色和样式
-           /* itemStyle: {
+            /*itemStyle: {
               normal: {
                 color:'#1fff27',
                 borderColor:'#2824FF'
