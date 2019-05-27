@@ -561,20 +561,39 @@
           },
           series: [{
             //去掉小圆点
-            symbol: "none",
-            name: '开销',
+            //symbol: "none",
+            symbol:'circle',
             type: 'radar',
             //数据区域背景颜色
             areaStyle: {normal: {
                 color:"#ffff00"
             }},
+            //去掉黄色背景周围的线
             lineStyle:{
               width:0,
             },
+            //拐点的颜色和样式
+            itemStyle: {
+              normal: {
+                color:'#1fff27',
+                borderColor:'#2824FF'
+              }
+            },
+
             data : [
               {
                 value : [5000, 5000, 28000, 31000, 42000],
-                name : '综合表现'
+                name : '综合表现',
+                symbolSize: 3,  //拐点大小
+                //显示拐点的数据
+                label: {
+                  normal: {
+                    show: true,
+                    formatter:function(params) {
+                      return params.value;
+                    }
+                  }
+                }
               }
             ]
           }]
