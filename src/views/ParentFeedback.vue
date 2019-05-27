@@ -561,8 +561,8 @@
           },
           series: [{
             //去掉小圆点
-            //symbol: "none",
-            symbol:'circle',
+            symbol: "none",
+            //symbol:'circle',
             type: 'radar',
             //数据区域背景颜色
             areaStyle: {normal: {
@@ -573,12 +573,12 @@
               width:0,
             },
             //拐点的颜色和样式
-            itemStyle: {
+           /* itemStyle: {
               normal: {
                 color:'#1fff27',
                 borderColor:'#2824FF'
               }
-            },
+            },*/
 
             data : [
               {
@@ -586,14 +586,14 @@
                 name : '综合表现',
                 symbolSize: 3,  //拐点大小
                 //显示拐点的数据
-                label: {
+                /*label: {
                   normal: {
                     show: true,
                     formatter:function(params) {
                       return params.value;
                     }
                   }
-                }
+                }*/
               }
             ]
           }]
