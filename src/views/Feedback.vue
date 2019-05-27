@@ -219,6 +219,10 @@
     color: #7a8afe !important;
   }
 
+  .ivu-rate-star-first, .ivu-rate-star-second {
+    color: #cfcfcf !important;
+  }
+
   .padding-left-right {
     padding: 0px 10px 0px 10px;
   }
