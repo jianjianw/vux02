@@ -519,7 +519,7 @@
             text: '基础雷达图'
           },
           //提示信息
-          tooltip: {
+          tooltip: {//提示信息不超出屏幕
             confine: true,
             enterable: true,
           },
