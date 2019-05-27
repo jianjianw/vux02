@@ -519,16 +519,20 @@
             text: '基础雷达图'
           },
           //提示信息
-          tooltip: {},
+          tooltip: {
+            confine: true,
+            enterable: true,
+          },
           radar: {
             shape: 'circle',
+            splitNumber: 5, // 雷达图圈数设置
             name: {
               textStyle: {
                 color: '#6666ff',
                 borderRadius: 3,
-                padding: [3, 5]
-              }
-
+                padding: [3, 5],
+              },
+              fontWeight:'bold'
             },
             axisLine: {
               lineStyle: {
@@ -540,6 +544,7 @@
                 color: '#6666ff'
               }
             },
+            //背景分割区域
             splitArea:{
               areaStyle: {
                 color:"#ffffff"
@@ -547,12 +552,11 @@
             },
 
             indicator: [
-              { name: '销售（sales）', max: 6500},
-              { name: '管理（Administration）', max: 16000},
-              { name: '信息技术（Information Techology）', max: 30000},
-              { name: '客服（Customer Support）', max: 38000},
-              { name: '研发（Development）', max: 52000},
-              { name: '市场（Marketing）', max: 25000}
+              { name: '课堂表现', max: 6500},
+              { name: '指法', max: 16000},
+              { name: '节奏', max: 30000},
+              { name: '弹奏技巧', max: 38000},
+              { name: '手型', max: 52000}
             ]
           },
           series: [{
@@ -569,8 +573,8 @@
             },
             data : [
               {
-                value : [5000, 14000, 28000, 31000, 42000, 21000],
-                name : '实际开销（Actual Spending）'
+                value : [5000, 5000, 28000, 31000, 42000],
+                name : '综合表现'
               }
             ]
           }]
