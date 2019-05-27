@@ -1,4 +1,8 @@
 <style scoped>
+
+  #app {
+    margin-top: 10px !important;
+  }
   .center-title-font {
     font-weight: bold;
     font-size: 15px;
