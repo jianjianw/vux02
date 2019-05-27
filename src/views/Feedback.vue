@@ -232,10 +232,29 @@
     margin-bottom: 20px;
   }
 
+  .parent-feedback {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+  }
+
 
 </style>
 <template>
   <div class="container">
+    <div class="parent-feedback" v-if="parentFeedback">
+      <flexbox justify="space-between">
+        <div>
+          <span style="padding-left: 25px">家长对这节课的评价</span>
+        </div>
+        <div>
+          <Rate v-model="value10" :count=3 @on-change="selectItem10" custom-icon="iconfont iconxingxing"/>
+        </div>
+        <div>
+          <span style="padding-right: 25px">{{selectText10}}</span>
+        </div>
+      </flexbox>
+    </div>
     <div class="header-area">
       <flexbox justify="space-between">
         <div style="margin-top: 10px">
@@ -432,7 +451,7 @@
         <flexbox orient="vertical">
           <div class="line"></div>
           <!--已经添加事件-->
-          <div v-if="!recordFlag" @touchstart.stop.prevent="submit01" @touchend.stop.prevent="submit02"  class="btn">
+          <div v-if="!recordFlag" @touchstart.stop.prevent="submit01" @touchend.stop.prevent="submit02" class="btn">
             <flexbox justify="space-around">
               <span class="iconfont iconhuatong"></span>
               <span>语音留言（按住说话)</span>
@@ -440,7 +459,8 @@
             </flexbox>
           </div>
           <!--录音成功,显示录制的语音-->
-          <div v-if="recordFlag" class="record-voice"  @touchend.stop.prevent="clearTime" @touchstart.stop.prevent="playVoice">
+          <div v-if="recordFlag" class="record-voice" @touchend.stop.prevent="clearTime"
+               @touchstart.stop.prevent="playVoice">
             <flexbox>
               <flexbox-item :span=1>
                 <i class="iconfont iconwifi padding-left-right "></i>
@@ -452,7 +472,7 @@
           </div>
           <!--录音的效果-->
           <div v-if="showVoiceEffect === true" class="record-line">
-            <spinner  type="lines" size="100px"></spinner>
+            <spinner type="lines" size="100px"></spinner>
           </div>
           <!--<div class="record-text">
             <group>
@@ -490,7 +510,7 @@
 <script>
   import {
     Group, Grid, GridItem, GroupTitle, Flexbox, FlexboxItem, Checker, CheckerItem, Icon, Checklist, XHeader,
-    XTextarea, XButton, Spinner,Confirm
+    XTextarea, XButton, Spinner, Confirm
   } from 'vux'
   import wx from 'weixin-js-sdk'
 
@@ -516,16 +536,16 @@
     methods: {
 
       //取消删除语音
-      onCancel () {
+      onCancel() {
         console.log('on cancel');
       },
       //确认删除语音
-      onConfirm (msg) {
-       this.deleteVoice();
+      onConfirm(msg) {
+        this.deleteVoice();
       },
 
       //删除语音
-      deleteVoice(){
+      deleteVoice() {
         //将成功置为false;
         this.recordFlag = false;
         console.log("删除语音");
@@ -534,7 +554,7 @@
       //播放语音
       playVoice() {
         clearTimeout(this.Loop); //再次清空定时器，防止重复注册定时器
-        this.Loop = setTimeout(function() {
+        this.Loop = setTimeout(function () {
           //长按
           this.isLongPress = true;
           //打开删除动效
@@ -547,7 +567,7 @@
         // 这个方法主要是用来将每次手指移出之后将计时器清零
         clearInterval(this.Loop);
         //录音没删除就播放
-        if(!this.isLongPress){
+        if (!this.isLongPress) {
           console.log("播放语音");
         }
         //关闭长按
@@ -677,14 +697,14 @@
             this.selectText01 = "较差";
             return;
           case 3:
-              this.selectText01 = "一般";
-              return;
+            this.selectText01 = "一般";
+            return;
           case 4:
-              this.selectText01 = "完美";
-              return;
+            this.selectText01 = "完美";
+            return;
           case 5:
-              this.selectText01 = "非常完美";
-              return;
+            this.selectText01 = "非常完美";
+            return;
         }
       },
       selectItem02() {
@@ -800,6 +820,20 @@
           case 1:
             this.selectText09 = "集中";
         }
+      },
+      selectItem10() {
+        let i = this.value10;
+        switch (i) {
+          case 1:
+            this.selectText10 = "一般";
+            return;
+          case 2:
+            this.selectText10 = "满意";
+            return;
+          case 3:
+            this.selectText10 = "非常满意";
+            return;
+        }
       }
 
     },
@@ -815,6 +849,7 @@
         value07: 0,
         value08: 0,
         value09: 0,
+        value10: 0,
         selectText01: '请打分',
         selectText02: '请打分',
         selectText03: '请打分',
@@ -824,6 +859,7 @@
         selectText07: '一般',
         selectText08: '一般',
         selectText09: '一般',
+        selectText10: '一般',
         textArea: '',
 
         fileId: '',
@@ -839,9 +875,11 @@
         //录音是否成功
         recordFlag: false,
         //是否长按录音成功
-        isLongPress:false,
+        isLongPress: false,
         //显示删除提示框
-        show:false
+        show: false,
+        //家长返回成功或者失败
+        parentFeedback: true
 
       }
     },
