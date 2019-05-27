@@ -394,42 +394,6 @@
           <span>曲目评分</span>
         </div>
         <flexbox orient="vertical">
-          <!--相册-->
-          <div class="line"></div>
-          <div>
-            <flexbox justify="center" wrap="wrap">
-              <div class="demo-upload-list" v-for="item in uploadList">
-                <template v-if="item.status === 'finished'">
-                  <img :src="item.url" width="60px" height="60px">
-                  <div class="demo-upload-list-cover">
-                    <Icon type="ios-eye-outline" @click.native="handleView(item.id,item.name)"></Icon>
-                    <Icon type="ios-trash-outline" @click.native="handleRemove(item)"></Icon>
-                  </div>
-                </template>
-              </div>
-              <Upload v-show="showUpload"
-                      :action="uploadUrl"
-                      ref="upload"
-                      :show-upload-list="false"
-                      :default-file-list="defaultList"
-                      :on-success="handleSuccess"
-                      :on-error="handleError"
-                      :format="['jpg','jpeg','png']"
-                      :max-size="10240"
-                      :on-format-error="handleFormatError"
-                      :on-exceeded-size="handleMaxSize"
-                      multiple
-                      type="drag">
-                <div v-if="uploadList.length < 1" class="music-item">
-                  <i class="iconfont iconwifi"></i>
-                </div>
-              </Upload>
-              <Modal title="查看" v-model="visible" footer-hide>
-                <img :src="downloadFile(feedback.fileId)" v-if="visible" style="width: 100%">
-              </Modal>
-            </flexbox>
-          </div>
-
           <!-- 音符准确性-->
           <div class="line"></div>
           <div class="show-item">
