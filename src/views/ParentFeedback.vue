@@ -1,5 +1,4 @@
-<style scoped>
-
+<style>
   #app {
     margin-top: 10px !important;
   }
@@ -106,6 +105,18 @@
 
   .code {
     margin-left: 5px;
+  }
+
+  .ivu-rate-star-full:before, .ivu-rate-star-half .ivu-rate-star-content:before {
+    color: #fe1322 !important;
+  }
+
+  .ivu-rate-star-chart.ivu-rate-star-full .ivu-rate-star-first, .ivu-rate-star-chart.ivu-rate-star-full .ivu-rate-star-second {
+    color: #fe1322 !important;
+  }
+
+  .ivu-rate-star-first, .ivu-rate-star-second {
+    color: #f9ff1d !important;
   }
 </style>
 <template>
